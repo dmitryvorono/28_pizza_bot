@@ -10,4 +10,4 @@ from app import models
 
 admin = Admin(app, name='pizza bot', template_mode='bootstrap3')
 admin.add_view(ModelView(models.Pizza, db.session))
-#admin.add_view(ModelView(Post, db.session))
+admin.add_view(ModelView(models.PizzaSize, db.session))
