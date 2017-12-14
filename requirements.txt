@@ -4,4 +4,3 @@ flask==0.12.2
 Flask-Admin==1.5.0
 Flask-SQLAlchemy==2.3.2
 sqlalchemy-migrate==0.11.0
-Flask-BasicAuth==0.2.0
