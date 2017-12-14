@@ -1,24 +1,24 @@
 from app import db
 
 
-pizza_sizes = db.Table('pizza_sizes',
-    db.Column('pizza_size_id', db.Integer, db.ForeignKey('pizza_size.id'), primary_key=True),
-    db.Column('pizza_id', db.Integer, db.ForeignKey('pizza.id'), primary_key=True)
+pizza_choices = db.Table('pizza_choices',
+    db.Column('choice_id', db.Integer, db.ForeignKey('choices.id'), primary_key=True),
+    db.Column('pizza_id', db.Integer, db.ForeignKey('pizzas.id'), primary_key=True)
 )
 
 
 class Pizza(db.Model):
-    __tablename__ = 'pizza'
+    __tablename__ = 'pizzas'
     identifier = db.Column('id', db.Integer, primary_key=True)
     title = db.Column(db.String)
     description = db.Column(db.String)
-    weight = db.Column(db.Integer)
-    size = db.relationship('PizzaSize', secondary=pizza_sizes)
-    price = db.Column(db.Float)
+    choices = db.relationship('Choice', secondary=pizza_choices)
 
 
-class PizzaSize(db.Model):
-    __tablename__ = 'pizza_size'
+
+class Choice(db.Model):
+    __tablename__ = 'choices'
     identifier = db.Column('id', db.Integer, primary_key=True)
-    size = db.Column(db.Integer)
+    title = db.Column(db.String)
+    price = db.Column(db.Float)
     
