@@ -2,6 +2,7 @@ from app.flask_server import app
 from functools import wraps
 from flask import request, Response, render_template
 from config import admin_name, admin_password
+from http import HTTPStatus
 
 
 def check_auth(username, password):
@@ -13,7 +14,8 @@ def check_auth(username, password):
 
 def authenticate():
     return Response('Could not verify your access level for that URL.\n'
-                    'You have to login with proper credentials', 401,
+                    'You have to login with proper credentials',
+                    HTTPStatus.UNAUTHORIZED,
                     {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 

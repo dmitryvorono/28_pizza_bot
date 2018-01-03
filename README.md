@@ -33,7 +33,7 @@ python db_load.py
 python server.py
 ```
 
-App will running on http://localhost:8080/
+App will running on http://localhost:8080/admin/
 
 4. Register new telegram bot for development purposes, get the new token. [@BotFather](https://telegram.me/botfather)
 5. Export your telegram bot token to environment variable `BOT_TOKEN`
