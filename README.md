@@ -1,6 +1,6 @@
 # Telegram Bot for Pizzeria
 
-Это телеграмм бот для пиццерии, которая хочет быть ближе к своим клиентам. Он позволяет им просматривать меню пиццерии в своем телефоне.
+This project is telegram bot for a pizzeria that wants to be closer to its customers. It allows them to view the menu of the pizzeria in their phone.
 
 # How to install
 
