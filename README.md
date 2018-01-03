@@ -1,19 +1,54 @@
 # Telegram Bot for Pizzeria
 
-[TODO. There will be project description]
+Это телеграмм бот для пиццерии, которая хочет быть ближе к своим клиентам. Он позволяет им просматривать меню пиццерии в своем телефоне.
+
+# How to install
+
+Python 3 should be already installed. Then use pip (or pip3 if there is a conflict with old Python 2 setup) to install dependencies:
+
+```bash
+$ pip install -r requirements.txt # alternatively try pip3
+```
+Remember, it is recommended to use [virtualenv/venv](https://devman.org/encyclopedia/pip/pip_virtualenv/) for better isolation.
 
 # How to Use
 
-Step 1. Register new telegram bot for development purposes, get the new token. [@BotFather](https://telegram.me/botfather)
+1. Export some environment variables:
 
-Step 2. Launch
+`FLASK_DB_FILENAME` - path to your database
+`FLASK_ADMIN` - username superuser
+`FLASK_PASSWORD` - password superuser
 
+2. You need export data from models.py to your database:
+
+```#!bash
+python db_create.py
+python db_migraty.py
+python db_load.py
 ```
-#!bash
 
-$ # the token below is not actual, you need to register a new one
-$ BOT_TOKEN="110831855:AAE_GbIeVAUwk11O12vq4UeMnl20iADUtM" python3 bot.py
+3. Run flask-application to change menu:
+
+```#!bash
+python server.py
 ```
+
+App will running on http://localhost:8080/
+
+4. Register new telegram bot for development purposes, get the new token. [@BotFather](https://telegram.me/botfather)
+5. Export your telegram bot token to environment variable `BOT_TOKEN`
+6. Launch bot:
+
+```#!bash
+python bot.py
+```
+
+# Bot commands
+
+The bot understand two commands:
+1. `/start` - show greetings
+2. `/menu` - show menu
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
