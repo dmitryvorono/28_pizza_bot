@@ -16,7 +16,9 @@ Remember, it is recommended to use [virtualenv/venv](https://devman.org/encyclop
 1. Export some environment variables:
 
 `FLASK_DB_FILENAME` - path to your database
+
 `FLASK_ADMIN` - username superuser
+
 `FLASK_PASSWORD` - password superuser
 
 2. You need export data from models.py to your database:
