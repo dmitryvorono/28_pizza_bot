@@ -1,13 +1,14 @@
-from app import db, models
+from app.flask_server import db
+from app.models import Choice, Pizza
 from models import catalog
 
 
 def get_choice(choice_info):
-    choices_query = db.session.query(models.Choice).filter(models.Choice.title == choice_info['title'])
-    choices_query = choices_query.filter(models.Choice.price == choice_info['price'])
+    choices_query = db.session.query(Choice).filter(Choice.title == choice_info['title'])
+    choices_query = choices_query.filter(Choice.price == choice_info['price'])
     if choices_query.count() > 0:
         return choices_query.first()
-    choice = models.Choice(**choice_info)
+    choice = Choice(**choice_info)
     db.session.add(choice)
     db.session.commit()
     return choice
@@ -15,7 +16,7 @@ def get_choice(choice_info):
 
 def load_pizzas(catalog):
     for catalog_entry in catalog:
-        pizza = models.Pizza()
+        pizza = Pizza()
         pizza.title = catalog_entry['title']
         pizza.description = catalog_entry['description']
         for choice_entry in catalog_entry['choices']:
@@ -23,7 +24,7 @@ def load_pizzas(catalog):
             pizza.choices.append(choice)
         db.session.add(pizza)
     db.session.commit()
-    
+
 
 if __name__ == "__main__":
     load_pizzas(catalog)

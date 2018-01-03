@@ -1,4 +1,4 @@
-from app import app, db, models
+from app.flask_server import app
 from functools import wraps
 from flask import request, Response, render_template
 from config import admin_name, admin_password
@@ -12,11 +12,9 @@ def check_auth(username, password):
 
 
 def authenticate():
-    """Sends a 401 response that enables basic auth"""
-    return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+    return Response('Could not verify your access level for that URL.\n'
+                    'You have to login with proper credentials', 401,
+                    {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 
 def requires_auth(f):
