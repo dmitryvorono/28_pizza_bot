@@ -29,6 +29,8 @@ python db_migraty.py
 python db_load.py
 ```
 
+or use ready-db `pizza.db`.
+
 3. Run flask-application to change menu:
 
 ```#!bash
