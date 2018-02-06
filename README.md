@@ -21,15 +21,13 @@ Remember, it is recommended to use [virtualenv/venv](https://devman.org/encyclop
 
 `FLASK_PASSWORD` - password superuser
 
-2. You need export data from models.py to your database:
+2. You need export data from [models.py](https://raw.githubusercontent.com/devmanorg/28_pizza_bot/master/models.py) to your database:
 
 ```#!bash
 python db_create.py
 python db_migraty.py
 python db_load.py
 ```
-
-or use ready-db `pizza.db`.
 
 3. Run flask-application to change menu:
 
