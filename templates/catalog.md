@@ -3,8 +3,6 @@
 {% for entry in catalog -%}
 *{{ entry.title }} #{{loop.index}}*
 {{ entry.description }}
-    {%- for choice in entry.choices %}
-        {{ choice.title }} - *{{ choice.price }} руб.*
-    {%- endfor %}
+        '30 см (450гр)'{{ entry.size }} см ({{ entry.weight }}гр) - *{{ choice.price }} руб.*
 
 {% endfor %}

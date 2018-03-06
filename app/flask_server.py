@@ -9,4 +9,3 @@ db = SQLAlchemy(app)
 admin = Admin(app, name='pizza bot', template_mode='bootstrap3')
 from app import models, views
 admin.add_view(ModelView(models.Pizza, db.session))
-admin.add_view(ModelView(models.Choice, db.session))
